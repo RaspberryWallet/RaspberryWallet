@@ -1,0 +1,14 @@
+[Unit]
+Description=Raspberry Wallet Service
+After=network.target
+
+[Service]
+Type=simple
+User=wallet
+WorkingDirectory=/opt/wallet
+#ExecStart=/usr/bin/java -cp /opt/wallet/ServerHttp.jar io.raspberrywallet.MainKt
+ExecStart=/opt/wallet/service.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
