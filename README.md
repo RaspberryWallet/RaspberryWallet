@@ -43,3 +43,24 @@
 4. Install `sudo apt -y install iptables-persistent` and **select "Yes", save rules!**.
 5. Replace tables `sudo cp -r RaspberryWallet/etc/iptables /etc/`
 6. **BE WARNED** this can lock you out forever till reflash (or try via UART console if something goes wrong). *Reboot*.
+
+## Install Manager (replace with Release installer)
+1. Download latest Manager.jar release from github 
+```bash
+cd /opt/wallet && \
+curl -s https://api.github.com/repos/RaspberryWallet/Backend/releases/latest \
+| grep "browser_download_url.*jar" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| wget -qi -
+```
+2. Download latest sources from github 
+3. `cd; git clone https://github.com/RaspberryWallet/Backend.git && cd Backend`
+4. `sudo cp config.yaml /opt/wallet/`
+5. `sudo cp RaspberryWallet.keystore /opt/wallet/`
+6. `sudo cp -r modules /opt/wallet/modules`
+7. `sudo chown -R wallet:wallet /opt/wallet`
+
+
+## Run Manager
+1. `java -jar /opt/wallet/Manager.jar`
