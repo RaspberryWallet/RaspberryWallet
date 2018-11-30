@@ -24,7 +24,7 @@
 7. `sudo usermod -a -G netdev wallet`
 8. Move wpa_supplicant config and make it accessible to wallet `sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /opt/wallet; sudo chown wallet:wallet /opt/wallet/wpa_supplicant.conf; sudo ln -s /opt/wallet/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf`
 9. Allow wallet/netdev to do naughty things `sudo sh -c 'echo " " >> /etc/sudoers; grep "%netdev" RaspberryWallet/etc/sudoers >> /etc/sudoers'`.
-10. 
+10. Create service `sudo cp -r RaspberryWallet/etc/systemd /etc/`
 
 ## Setting up the USB network card and avahi: wallet.local
 1. `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed) and **add a line** `dtoverlay=dwc2`.
