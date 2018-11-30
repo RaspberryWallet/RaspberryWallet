@@ -18,5 +18,5 @@
 14. `sudo nano /etc/passwd` and in the last line change `/home/wallet` to `/opt/wallet`.
 15. `sudo chown -R wallet /opt/wallet; sudo chgrp -R wallet /opt/wallet`.
 16. `sudo usermod -a -G netdev wallet`
-17. `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed).
+17. `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed) and add a line `dtoverlay=dwc2`.
 
