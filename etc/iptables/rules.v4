@@ -14,10 +14,6 @@
 -A INPUT -m addrtype --dst-type ANYCAST -j DROP
 -A INPUT -d 224.0.0.0/4 -j DROP
 -A INPUT -s 192.168.0.0/24 -p tcp -m tcp --dport 22 --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j SSHBRUTE
--A INPUT -s 192.168.0.0/24 -p tcp -m tcp --dport 111 -j ACCEPT
--A INPUT -s 192.168.0.0/24 -p udp -m udp --dport 111 -j ACCEPT
--A INPUT -s 192.168.0.0/24 -p tcp -m tcp --dport 2049 -j ACCEPT
--A INPUT -s 192.168.0.0/24 -p udp -m udp --dport 2049 -j ACCEPT
 -A INPUT -i usb0 -p tcp -m tcp --dport 22 --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j SSHBRUTE 
 -A INPUT -i usb0 -p tcp --dport 80 -j ACCEPT
 -A INPUT -i usb0 -p tcp --dport 443 -j ACCEPT
@@ -27,8 +23,9 @@
 -A INPUT -i usb0 -p tcp --dport 5353 -j ACCEPT
 -A INPUT -i usb0 -p tcp --dport 5297 -j ACCEPT
 -A INPUT -i usb0 -p udp --dport 5297 -j ACCEPT
--A INPUT -i usb0 -p tcp --dport 5928 -j ACCEPT
--A INPUT -i usb0 -p udp --dport 5928 -j ACCEPT
+-A INPUT -i usb0 -p tcp --dport 5298 -j ACCEPT
+-A INPUT -i usb0 -p udp --dport 5298 -j ACCEPT
+-A INPUT -i usb0 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type 0 -m conntrack --ctstate NEW -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type 3 -m conntrack --ctstate NEW -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type 11 -m conntrack --ctstate NEW -j ACCEPT
