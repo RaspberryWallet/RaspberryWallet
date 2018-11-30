@@ -33,3 +33,11 @@
 4. `sudo mv RaspberryWallet/etc/hosts /etc/; sudo mv RaspberryWallet/etc/hostname /etc/`
 5. Reboot.
 6. Now you should be able to SSH to dietpi@10.7.7.2.
+
+## Firewall
+1. Check name of USB card (should be usb0) `ifconfig -a`.
+2. Edit `nano RaspberryWallet/etc/iptables/rules.v4` and change all of 192.168.0.0/24 to your home subnet.
+2.50. (Probably skip) Change all of `-i usb0` to `-i yourUSBnetworkCard`.
+3. Install `sudo apt -y install iptables-persistent` and **select "Yes", save rules!**.
+4. Replace tables `sudo cp -r RaspberryWallet/etc/iptables /etc/`
+5. **BE WARNED** this can lock you out forever till reflash (or try via UART console if something goes wrong). *Reboot*.
