@@ -29,12 +29,12 @@
 12. Set permissions: `sudo chown -R wallet /opt/wallet; sudo chgrp -R wallet /opt/wallet`.
 
 ## Setting up the USB network card and avahi: wallet.local
-1. `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed) and **add a line** `dtoverlay=dwc2`.
-2. `sudo apt -y install isc-dhcp-server`
-3. `cd; sudo cp -r RaspberryWallet/etc/dhcp /etc/; sudo cp -r RaspberryWallet/etc/network /etc/`.
-4. `sudo mv RaspberryWallet/etc/hosts /etc/; sudo mv RaspberryWallet/etc/hostname /etc/`
+1. Edit kernel config `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed) and **add a line** `dtoverlay=dwc2`.
+2. Install a DHCP server `sudo apt -y install isc-dhcp-server`
+3. Copy DHCP config `cd; sudo cp -r RaspberryWallet/etc/dhcp /etc/; sudo cp -r RaspberryWallet/etc/network /etc/`.
+4. Move hostnames so avahi sets up _wallet.local_ `sudo mv RaspberryWallet/etc/hosts /etc/; sudo mv RaspberryWallet/etc/hostname /etc/`
 5. Reboot.
-6. Now you should be able to SSH to dietpi@10.7.7.2.
+6. Now you should be able to SSH to dietpi@10.7.7.2 or dietpi@wallet.local.
 
 ## Firewall
 1. Check name of USB card (should be usb0) `ifconfig -a`.
