@@ -6,7 +6,7 @@
 3. Update and everything what DietPi wants, change the SSH client to OpenSSH.
 4. Reboot.
 5. `sudo apt purge dropbear lighttpd`
-6. `sudo apt -y install openssh-server git`
+6. `sudo apt -y install openssh-server git net-tools`
 6. `sudo nano /etc/bashrc.d/dietpi-login.sh` and comment out everything (or just delete).
 7. `sudo systemctl disable dietpi-boot ; sudo systemctl disable dietpi-postboot ; sudo systemctl disable dietpi-preboot`
 8. Reboot.
@@ -18,4 +18,5 @@
 14. `sudo nano /etc/passwd` and in the last line change `/home/wallet` to `/opt/wallet`.
 15. `sudo chown -R wallet /opt/wallet; sudo chgrp -R wallet /opt/wallet`.
 16. `sudo usermod -a -G netdev wallet`
-17. ``
+17. `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed).
+
