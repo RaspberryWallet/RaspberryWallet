@@ -26,7 +26,9 @@
 9. Create service `sudo cp -r RaspberryWallet/etc/systemd /etc/`
 10. Upload Manager.jar using scp to /home/dietpi/.
 11. `sudo cp /home/dietpi/Manager-1.0-SNAPSHOT.jar /opt/wallet/Manager.jar`
-12. Set permissions: `sudo chown -R wallet /opt/wallet; sudo chgrp -R wallet /opt/wallet`.
+12. Upload signed modules using scp to /home/dietpi.
+13. Copy modules `sudo mkdir /opt/wallet/modules; sudo cp *Module.jar /opt/wallet/modules/`.
+13. Set permissions: `sudo chown -R wallet /opt/wallet; sudo chgrp -R wallet /opt/wallet`.
 
 ## Setting up the USB network card and avahi: wallet.local
 1. Edit kernel config `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed) and **add a line** `dtoverlay=dwc2`.
@@ -35,8 +37,9 @@
 4. Move hostnames so avahi sets up _wallet.local_ `sudo mv RaspberryWallet/etc/hosts /etc/; sudo mv RaspberryWallet/etc/hostname /etc/`
 5. Reboot.
 6. Now you should be able to SSH to dietpi@10.7.7.2 or dietpi@wallet.local.
+7. **Not working, investigating.**
 
-## Firewall
+## Firewall [!]
 1. Check name of USB card (should be usb0) `ifconfig -a`.
 2. Edit `nano RaspberryWallet/etc/iptables/rules.v4` and change all of 192.168.0.0/24 to your home subnet.
 3. a. (Probably skip) Change all of `-i usb0` to `-i yourUSBnetworkCard`.
