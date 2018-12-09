@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo chown -R wallet /opt/wallet
+sudo chgrp -R wallet /opt/wallet
