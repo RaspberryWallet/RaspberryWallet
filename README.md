@@ -65,3 +65,6 @@
 3. `restart` will restart wallet service
 4. `logs` will show and follow logs from wallet service 
 5. `setpermissions` will set `wallet` file owner and group for `/opt/wallet/*` files.
+6. `installmodules` copy modules from `/home/dietpi/modules` to `/opt/wallet/modules` and set permissions
+7. `installmanager` copy manager from `/home/dietpi/*with-dependencies.jar` to `/opt/wallet/Manager.jar` and set permission
+8. `installwallet` copy manager and modules and set permissions
