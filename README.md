@@ -40,7 +40,7 @@
 13. Copy modules `sudo mkdir /opt/wallet/modules; sudo cp *Module.jar /opt/wallet/modules/`.
 14. Get the config `wget https://github.com/RaspberryWallet/Backend/raw/master/config.yaml; sudo mv config.yaml /opt/wallet/`
 15. Get keystore `wget https://github.com/RaspberryWallet/Backend/raw/master/RaspberryWallet.keystore; sudo mv RaspberryWallet.keystore /opt/wallet/`.
-16. Set permissions: `sudo chown -R wallet:wallet /opt/wallet`.
+16. Set permissions: `sudo chown -R wallet:wallet /opt/wallet; sudo chmod -R o-r,o-x /opt/wallet`.
 
 ## Setting up the USB network card and avahi: wallet.local
 1. Edit kernel config `sudo nano /boot/cmdline.txt`, add at the end `modules-load=dwc2,g_ether` and in `/boot/config.txt` set `dtparam=audio=off` (audio is not needed) and **add a line** `dtoverlay=dwc2`.
