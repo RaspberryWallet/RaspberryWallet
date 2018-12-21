@@ -58,3 +58,13 @@
 4. Install `sudo apt -y install iptables-persistent` and **select "Yes", save rules!**.
 5. Replace tables `sudo cp -r RaspberryWallet/etc/iptables /etc/`
 6. **BE WARNED** this can lock you out forever till reflash (or try via UART console if something goes wrong). *Reboot*.
+
+## Utils
+1. Copy utility scripts: `cp -r RaspberryWallet/usr/local/bin/* /usr/local/bin/`
+2. `status` will print wallet service status  
+3. `restart` will restart wallet service
+4. `logs` will show and follow logs from wallet service 
+5. `setpermissions` will set `wallet` file owner and group for `/opt/wallet/*` files.
+6. `installmodules` copy modules from `/home/dietpi/modules` to `/opt/wallet/modules` and set permissions
+7. `installmanager` copy manager from `/home/dietpi/*with-dependencies.jar` to `/opt/wallet/Manager.jar` and set permission
+8. `installwallet` copy manager and modules and set permissions

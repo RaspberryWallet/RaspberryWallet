@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sudo cp ~/Manager.jar /opt/wallet/Manager.jar && \
+sudo cp -r ~/modules /opt/wallet/ && \
+setpermissions && \
+echo "If you want apply the changes now, please execute: restart"

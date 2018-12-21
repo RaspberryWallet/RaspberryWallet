@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sudo cp -r ~/modules /opt/wallet/ && \
+setpermissions && \
+echo "If you want apply the changes now, please execute: restart"
